@@ -1,9 +1,9 @@
 import React from 'react';
+import Color from 'colorjs.io';
 
 import ColorBox from '../ColorBox/ColorBox';
 
-import Color from 'colorjs.io';
-
+import './ColorArray.css';
 
 /**
  * A collection of ColorBox components all arranged around a given base color

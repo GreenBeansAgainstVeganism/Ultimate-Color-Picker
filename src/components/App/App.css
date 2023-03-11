@@ -12,7 +12,9 @@
     min-height: 100vh;
 }
 
-header, main, footer {
+header,
+main,
+footer {
     margin: 1rem;
     padding: 1rem;
     background-color: white;
@@ -29,4 +31,8 @@ h1 {
 main {
     flex-grow: 1;
     margin-block: 0;
+}
+
+.color-array {
+    margin: auto;
 }

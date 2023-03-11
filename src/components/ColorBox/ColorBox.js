@@ -24,7 +24,7 @@ export default class ColorBox extends Component {
         return (
             <div className="color-box" style={{backgroundColor: this.props.color.display()}}>
                 <button className='select-color' onClick={this.handleChange}></button>
-                <button className='add-color'></button>
+                {/* <button className='add-color'></button> */}
             </div>
         )
     }
