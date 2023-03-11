@@ -3,8 +3,12 @@ import React from 'react';
 
 import './App.css';
 
-import ColorBox from '../ColorBox/ColorBox';
+// import ColorBox from '../ColorBox/ColorBox';
+import ColorArray from '../ColorArray/ColorArray';
 
+/**
+ * Component containing the entire app
+ */
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -14,6 +18,12 @@ class App extends React.Component {
                 Math.random() * 60 + 10,
                 Math.random() * 30 + 70])
         };
+
+        this.handleSelectedColorChange = this.handleSelectedColorChange.bind(this);
+    }
+
+    handleSelectedColorChange(newcolor) {
+        this.setState({ selectedColor: newcolor });
     }
 
     render() {
@@ -24,13 +34,13 @@ class App extends React.Component {
                 </header>
                 <main>
                     <div>
-                        <ColorBox color={this.state.selectedColor}></ColorBox>
-                        <ColorBox color={new Color('red')}></ColorBox>
-                        <ColorBox color={new Color('hsv', [
-                            Math.random() * 360,
-                            Math.random() * 60 + 10,
-                            Math.random() * 30 + 70])
-                        }></ColorBox>
+                        <ColorArray rows={6} columns={12}
+                            baseColor={this.state.selectedColor}
+                            onSelectedColorChange={this.handleSelectedColorChange}
+                            colorComputeFunction={(c,x,y) => {
+                                c.hsv.h += (360 / 12) * x;
+                                c.hsv.v *= 1 - (y / 6);
+                            }}></ColorArray>
                     </div>
                 </main>
                 <footer>
